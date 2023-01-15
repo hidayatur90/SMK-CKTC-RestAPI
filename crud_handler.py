@@ -12,7 +12,7 @@ def create_user(user):
             INSERT INTO employees(name, phone, city)
             VALUES (?, ?, ?)''', (user['name'], user['phone'], user['city']))
         conn.commit()
-        data_user = get_user_by_id(cur.lastrowid)
+        data_user = get_user_by_id(cur.lastrowid) # increment
     except:
         conn.rollback()
         
@@ -93,3 +93,11 @@ def delete_user(user_id):
     finally:
         conn.close()
 
+
+
+
+# Connect = Koneksi ke database
+# Cursor = Metode sebelum kita melalukan execute query
+# Execute = Mengeksekusi query yang ada
+# Commit = Menyimpan pembaruan
+# Close = Memutuskan koneksi database

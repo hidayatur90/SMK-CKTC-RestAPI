@@ -1,7 +1,7 @@
 # Import library dan file
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from crud_handler import create_user, delete_user, get_all_user, get_user_by_id, edit_user, delete_user
+from crud_handler import create_user, get_all_user, get_user_by_id, edit_user, delete_user
 
 # Flask CORS
 app = Flask(__name__)
@@ -40,5 +40,14 @@ def api_delete_user(user_id):
     return "Data Berhasil dihapus!"
 
 # Running Apps
-if '__name__' == '__main__':
+if __name__ == '__main__':
     app.run(debug=True)
+
+
+
+
+# Status
+
+# 0 - 200 => berhasil
+# 201 - 399 => ada error di koneksi database
+# 400 - 599 => database aman tetapi route tidak ada
